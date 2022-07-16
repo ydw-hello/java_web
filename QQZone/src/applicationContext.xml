@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE beans [
+    <!ELEMENT beans (bean*)>
+    <!ELEMENT bean (property*)>
+    <!ELEMENT property (#PCDATA)>
+
+    <!ATTLIST bean id ID #REQUIRED>
+    <!ATTLIST bean class CDATA #IMPLIED>
+    <!ATTLIST property name CDATA #IMPLIED>
+    <!ATTLIST property ref IDREF #IMPLIED>
+]>
+
+<beans>
+    <bean id="userBasicDao" class="com.ydw.qqzone.dao.impl.UserBasicDaoImpl"/>
+    <bean id="topicDao" class="com.ydw.qqzone.dao.impl.TopicDaoImpl"/>
+    <bean id="replyDao" class="com.ydw.qqzone.dao.impl.ReplyDaoImpl"/>
+    <bean id="hostReplyDao" class="com.ydw.qqzone.dao.impl.HostReplyDaoImpl"/>
+
+    <bean id="hostReplyService" class="com.ydw.qqzone.service.impl.HostReplyServiceImpl">
+        <property name="hostReplyDao" ref="hostReplyDao"/>
+    </bean>
+    <bean id="userBasicService" class="com.ydw.qqzone.service.impl.UserBasicServiceImpl">
+        <property name="userBasicDao" ref="userBasicDao"/>
+    </bean>
+
+    <bean id="topicService" class="com.ydw.qqzone.service.impl.TopicServiceImpl">
+        <property name="topicDao" ref="topicDao"/>
+    </bean>
+
+    <bean id="replyService" class="com.ydw.qqzone.service.impl.ReplyServiceImpl">
+        <property name="replyDao" ref="replyDao"/>
+    </bean>
+
+    <bean id="user" class="com.ydw.qqzone.controller.UserController">
+        <property name="userBasicService" ref="userBasicService"/>
+        <property name="topicService" ref="topicService"/>
+    </bean>
+    <bean id="page" class="com.ydw.myssm.myspringmvc.PageController"/>
+    <bean id="topic" class="com.ydw.qqzone.controller.TopicController">
+        <property name="topicService" ref="topicService"/>
+        <property name="replyService" ref="replyService"/>
+        <property name="hostReplyService" ref="hostReplyService"/>
+    </bean>
+
+</beans>

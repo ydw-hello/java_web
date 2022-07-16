@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/QQZone/QQZone.iml" filepath="$PROJECT_DIR$/QQZone/QQZone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/first_java_web/first_java_web.iml" filepath="$PROJECT_DIR$/first_java_web/first_java_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myServlet/myServlet.iml" filepath="$PROJECT_DIR$/myServlet/myServlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet-api/servlet-api.iml" filepath="$PROJECT_DIR$/servlet-api/servlet-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thymeleaf_servket_test/thymeleaf_servket_test.iml" filepath="$PROJECT_DIR$/thymeleaf_servket_test/thymeleaf_servket_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thymeleaf_servket_test_mvc2.0/thymeleaf_servket_test_mvc2.0.iml" filepath="$PROJECT_DIR$/thymeleaf_servket_test_mvc2.0/thymeleaf_servket_test_mvc2.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thymeleaf_servket_test_mvc3.0/thymeleaf_servket_test_mvc3.0.iml" filepath="$PROJECT_DIR$/thymeleaf_servket_test_mvc3.0/thymeleaf_servket_test_mvc3.0.iml" />
+    </modules>
+  </component>
+</project>

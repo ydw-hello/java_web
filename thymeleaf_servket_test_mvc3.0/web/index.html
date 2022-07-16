@@ -1,0 +1,48 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>水果库存页面</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script language="JavaScript" src="js/index.js"></script>
+</head>
+<body>
+    <div id="div_container">
+        <div id="div_fruit_list">
+            <p class="center f30">欢迎来到水果管理系统</p>
+            <div id="insert_div">
+                <form th:action="@{/fruit.do}" method="post" style="border: 0px solid red;display: inline-block;margin-right: 20px">
+                    <input type="hidden" name="operation" value="search">
+                    请输入查询关键字：<input type="text" name="keyword" th:value="${session.keyword}">
+                    <input type="submit" value="查询">
+                </form>
+                <a th:href="@{/add.html}" style="display: inline-block">添加水果信息</a>
+            </div>
+            <table id="tbl_fruit">
+                <tr>
+                    <th>名称</th>
+                    <th>单价</th>
+                    <th>库存</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:if="${#lists.isEmpty(session.fruits)}">
+                    <td colspan="4">对不起，库存为空</td>
+                </tr>
+                <tr th:unless="${#lists.isEmpty(session.fruits)}" th:each="fruit:${session.fruits}">
+                    <td ><a th:href="@{/fruit.do(id=${fruit.id},oper='edit')}" th:text="${fruit.name}"></a></td>
+                    <td th:text="${fruit.price}"></td>
+                    <td th:text="${fruit.count}"></td>
+                    <td><img src="img/del.jpeg" alt="" title="删除" class="delImg" th:onclick="|delFruit(${fruit.id})|"></td>
+                </tr>
+
+            </table>
+            <div id="cursor_div">
+
+                    <button th:onclick="|page(1)|" th:disabled="${session.pageNo==1}">首页</button>
+                    <button th:onclick="|page(${session.pageNo-1})|" th:disabled="${session.pageNo==1}">上一页</button>
+                    <button th:onclick="|page(${session.pageNo+1})|" th:disabled="${session.pageNo==session.totalPage}">下一页</button>
+                    <button th:onclick="|page(${session.totalPage})|" th:disabled="${session.pageNo==session.totalPage}">尾页</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
